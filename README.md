@@ -37,7 +37,7 @@ Projekt zawiera kompletny pakiet jakościowy przygotowany w stylu pracy QA:
 - 16 przypadków testowych: pozytywnych, negatywnych, granicznych i eksploracyjnych;
 - checklistę smoke oraz regresji procesu i interfejsu;
 - przykładowe raporty defektów z priorytetem, dotkliwością i rekomendacją;
-- 20 automatycznych testów Python obejmujących logikę, API, SQLite, role, alerty, eksport i bezpieczeństwo ścieżek;
+- 22 automatyczne testy Python obejmujących logikę, API, SQLite, role, alerty, eksport i bezpieczeństwo ścieżek;
 - macierz śledzenia wymagań, bramki jakości GO/NO-GO i workflow GitHub Actions;
 - podsumowanie testów z kryteriami decyzji GO/NO-GO.
 
@@ -61,6 +61,7 @@ Kontrola sprawdza 30 syntetycznych zamówień, 12 etapów procesu, widoki ról, 
 
 ## Najważniejsze endpointy
 
+- `GET /api/health`, stan aplikacji i klasa danych;
 - `GET /api/dashboard?role=Właściciel`, KPI dla wybranej roli;
 - `GET /api/orders`, lista i filtry zleceń;
 - `POST /api/orders`, utworzenie nowego zapytania;
