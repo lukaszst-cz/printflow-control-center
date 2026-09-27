@@ -161,10 +161,40 @@ class PrintFlowTestCase(unittest.TestCase):
         for forbidden in ("@gmail.com", "pesel", "regon", "numer vin"):
             self.assertNotIn(forbidden, serialised)
 
+    def test_health_endpoint(self):
+        response = self.call_api("/api/health")
+        self.assertEqual(response["status"], "200 OK")
+        self.assertEqual(response["json"]["status"], "ok")
+        self.assertEqual(response["json"]["service"], "printflow-control-center")
+        self.assertEqual(response["json"]["data_class"], "synthetic")
+
     def test_dashboard_endpoint_returns_json(self):
         response = self.call_api("/api/dashboard", query="role=Handel")
         self.assertEqual(response["status"], "200 OK")
         self.assertEqual(response["json"]["role"], "Handel")
+
+    def test_post_endpoint_rejects_malformed_json(self):
+        environ = {}
+        setup_testing_defaults(environ)
+        raw = b'{"client_code":'
+        environ.update(
+            PATH_INFO="/api/orders",
+            REQUEST_METHOD="POST",
+            QUERY_STRING="",
+            CONTENT_LENGTH=str(len(raw)),
+        )
+        environ["wsgi.input"] = io.BytesIO(raw)
+        response = {}
+
+        def start_response(status, headers):
+            response["status"] = status
+            response["headers"] = dict(headers)
+
+        body = b"".join(app.application(environ, start_response))
+        response["json"] = json.loads(body.decode("utf-8"))
+        self.assertEqual(response["status"], "400 Bad Request")
+        self.assertFalse(response["json"]["ok"])
+        self.assertIn("Nieprawidłowy JSON", response["json"]["errors"])
 
     def test_post_endpoint_returns_201_for_valid_order(self):
         response = self.call_api("/api/orders", "POST", self.valid_payload())
