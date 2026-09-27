@@ -8,7 +8,7 @@
 
 ## Bramka 2, automatyzacja
 
-- 20/20 testów automatycznych zakończonych powodzeniem;
+- 22/22 testy automatyczne zakończonych powodzeniem;
 - każdy test korzysta z izolowanej bazy tymczasowej;
 - testy P1 obejmują workflow, finanse, audyt, role, integralność i eksport.
 
