@@ -2,6 +2,12 @@
 
 Lokalne API aplikacji portfolio uruchamianej przez `python app.py`. Wszystkie odpowiedzi i dane wejściowe są demonstracyjne oraz syntetyczne. Nie jest to publiczne API produkcyjne i nie zawiera uwierzytelniania.
 
+## Stan aplikacji
+
+`GET /api/health`
+
+Zwraca prosty stan gotowości aplikacji oraz informację, że używany zestaw danych jest syntetyczny.
+
 ## Konfiguracja procesu
 
 `GET /api/config`
