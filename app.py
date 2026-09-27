@@ -286,6 +286,12 @@ def application(environ, start_response):
     params = parse_qs(environ.get("QUERY_STRING", ""))
     if path == "/":
         return send(start_response, "200 OK", render_app().encode(), "text/html; charset=utf-8")
+    if path == "/api/health":
+        return json_response(start_response, {
+            "status": "ok",
+            "service": "printflow-control-center",
+            "data_class": "synthetic"
+        })
     if path == "/api/config":
         return json_response(start_response, CONFIG)
     if path == "/api/dashboard":
@@ -293,7 +299,15 @@ def application(environ, start_response):
     if path == "/api/orders" and method == "GET":
         return json_response(start_response, list_orders(params.get("role", ["Właściciel"])[0], params.get("q", [""])[0], params.get("stage", [""])[0]))
     if path == "/api/orders" and method == "POST":
-        result = create_order(read_json(environ))
+        try:
+            payload = read_json(environ)
+        except (json.JSONDecodeError, UnicodeDecodeError, ValueError):
+            return json_response(
+                start_response,
+                {"ok": False, "errors": ["Nieprawidłowy JSON"]},
+                "400 Bad Request",
+            )
+        result = create_order(payload)
         return json_response(start_response, result, "201 Created" if result["ok"] else "400 Bad Request")
     if path.startswith("/api/orders/") and path.endswith("/advance") and method == "POST":
         try:
