@@ -1,5 +1,11 @@
 # ZIELONA MARKA PrintFlow Control Center
 
+Backendowa część demonstracji **PrintFlow 360**: Python + SQLite + API + QA dla procesu od zapytania i oferty do produkcji, logistyki, faktury i zamknięcia.
+
+Frontend/PWA i skoroszyt procesu: https://github.com/lukaszst-cz/printflow-360
+
+Działające demo frontowe: https://lukaszst-cz.github.io/printflow-360/
+
 Mała aplikacja demonstracyjna pokazująca proces obsługi zlecenia poligraficznego od zapytania i oferty do produkcji, logistyki, faktury i zamknięcia.
 
 ## Co prezentuje projekt
