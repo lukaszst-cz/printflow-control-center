@@ -71,3 +71,10 @@ Kontrola sprawdza 30 syntetycznych zamówień, 12 etapów procesu, widoki ról, 
 ## Zakres wersji portfolio
 
 To aplikacja portfolio, a nie system produkcyjny. Wybór roli demonstruje filtrowanie procesu, ale nie jest technicznym mechanizmem uwierzytelniania ani kontroli dostępu. Kolejny etap może objąć rzeczywiste RBAC, import XLSX/JSON, historię zmian w interfejsie i raporty okresowe.
+
+## Autor, darmowe projekty i wsparcie
+
+Projekt jest udostępniany bezpłatnie jako demonstracja i portfolio. Jeśli jest przydatny, można dobrowolnie wesprzeć dalszy rozwój: **[Postaw Naleśnikowi++ kawę ☕](https://buymeacoffee.com/nalesnik_plus_plus)**.
+
+Potrzebujesz własnej strony WWW, formularza wyceny albo prostego systemu dla firmy? **[Zobacz Zielona Marka →](https://zielona-marka.pl)**.
+
