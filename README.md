@@ -1,4 +1,4 @@
-# ZIELONA MARKA PrintFlow Control Center
+# Zielona Marka: PrintFlow Control Center
 
 Backendowa część demonstracji **PrintFlow 360**: Python + SQLite + API + QA dla procesu od zapytania i oferty do produkcji, logistyki, faktury i zamknięcia.
 
